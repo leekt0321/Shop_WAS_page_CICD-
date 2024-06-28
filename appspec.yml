@@ -11,15 +11,15 @@ files:
     destination: /usr/local/tomcat/scripts/
 hooks:
   ApplicationStop:
-    - location: /usr/local/tomcat/scripts/stop_tomcat.sh
+    - location: scripts/stop_tomcat.sh
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: /usr/local/tomcat/scripts/clean_old_files.sh
+    - location: scripts/clean_old_files.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: /usr/local/tomcat/scripts/start_tomcat.sh
+    - location: scripts/start_tomcat.sh
       timeout: 300
       runas: root
 
