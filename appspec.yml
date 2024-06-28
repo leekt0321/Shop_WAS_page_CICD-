@@ -12,6 +12,10 @@ hooks:
     - location: scripts/stop_tomcat.sh
       timeout: 300
       runas: root
+  BeforeInstall:
+    - location: scripts/clean_old_files.sh
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/start_tomcat.sh
       timeout: 300
