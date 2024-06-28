@@ -14,7 +14,7 @@
 
     <main>
         <section class="user-info">
-            <h2>Show Name and Location - I'm WAS </h2>
+            <h2>Show Name and Location - I'm WAS2 </h2>
             <div class="info-container">
                 <%
                     Connection conn = null;
