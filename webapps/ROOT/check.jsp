@@ -55,6 +55,9 @@
                         } catch (SQLException e) {
                             out.print("<p class='error'>Failed to close Connection: " + e.toString() + "</p>");
                         }
+                      }
+		    } else {
+                        out.print("<p class='error'>Error: Name and Age cannot be empty</p>");
                     }
                 %>
             </div>
