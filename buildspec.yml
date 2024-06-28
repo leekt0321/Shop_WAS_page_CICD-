@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing dependencies...
+  pre_build:
+    commands:
+      - echo Pre-building...
+  build:
+    commands:
+      - echo No build steps as we have pre-built WAR
+  post_build:
+    commands:
+      - echo Post-build steps...
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - conf/context.xml
+    - conf/server.xml
+    - lib/mysql-connector-java-8.0.23.jar
+    - scripts/**/*
+    - webapps/ROOT/**/*
+  discard-paths: yes
+

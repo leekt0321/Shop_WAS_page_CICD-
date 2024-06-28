@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: conf/
+    destination: /usr/local/tomcat/conf/
+  - source: lib/mysql-connector-java-8.0.23.jar
+    destination: /usr/local/tomcat/lib/
+  - source: webapps/ROOT/
+    destination: /usr/local/tomcat/webapps/ROOT
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_tomcat.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start_tomcat.sh
+      timeout: 300
+      runas: root
+
