@@ -23,5 +23,6 @@ artifacts:
     - lib/mysql-connector-java-8.0.23.jar
     - scripts/**/*
     - webapps/ROOT/**/*
+    - appspec.yml
   discard-paths: yes
 
