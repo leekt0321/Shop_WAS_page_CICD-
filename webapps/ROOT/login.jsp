@@ -15,7 +15,7 @@
     <main>
         <section class="login-form">
             <h2>Enter Your Information</h2>
-            <form action="/check" method="post">
+            <form action="/check.jsp" method="post">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
