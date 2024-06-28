@@ -1,0 +1,54 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import = "java.sql.*, javax.naming.*, javax.sql.DataSource" %>
+<%
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    try {
+        Context initContext = new InitialContext();
+        Context envContext = (Context) initContext.lookup("java:/comp/env");
+        DataSource ds = (DataSource) envContext.lookup("jdbc/MyDB");
+
+        conn = ds.getConnection();
+
+        out.println("SHOW NAME AND LOCATION - WEB 1 11111111111111111111111");
+        out.println("<BR>");
+        out.println("-------------------------------");
+        out.println("<BR>");
+
+        ps = conn.prepareStatement("SELECT * FROM user");
+        rs = ps.executeQuery();
+
+        while(rs.next()) {
+            String name = rs.getString("name");
+            String age = rs.getString("age");
+
+            out.println("name: " + name);
+            out.println("<BR>");
+            out.println("age: " + age);
+            out.println("<BR>");
+            out.println("-----------------------------");
+            out.println("<BR>");
+        }
+    } catch(Exception e) {
+        out.print("Error: " + e.toString()); // 실제 애플리케이션에서는 로그에 기록
+    } finally {
+        try {
+            if (rs != null) rs.close();
+        } catch (SQLException e) {
+            out.print("Failed to close ResultSet: " + e.toString());
+        }
+        try {
+            if (ps != null) ps.close();
+        } catch (SQLException e) {
+            out.print("Failed to close PreparedStatement: " + e.toString());
+        }
+        try {
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            out.print("Failed to close Connection: " + e.toString());
+        }
+    }
+%>
+
