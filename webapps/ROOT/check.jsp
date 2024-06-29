@@ -20,9 +20,6 @@
                     String name = request.getParameter("name");
                     String age = request.getParameter("age");
 
-		    out.println("<p>Debug: name = " + name + "</p>");
-                    out.println("<p>Debug: age = " + age + "</p>");
-
                     if (name != null && age != null && !name.isEmpty() && !age.isEmpty()) {
                         Connection conn = null;
                         PreparedStatement ps = null;
