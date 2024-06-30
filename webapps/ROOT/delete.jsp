@@ -15,7 +15,7 @@
         DataSource ds = (DataSource) envContext.lookup("jdbc/MyDB");
         conn = ds.getConnection();
 
-        String checkUserSQL = "SELECT COUNT(*) FROM users WHERE name = ? AND age = ?";
+        String checkUserSQL = "SELECT COUNT(*) FROM user WHERE name = ? AND age = ?";
         pstmt = conn.prepareStatement(checkUserSQL);
         pstmt.setString(1, delName);
         pstmt.setInt(2, delAge);
@@ -25,7 +25,7 @@
         }
 
         if (userExists) {
-            String deleteSQL = "DELETE FROM users WHERE name = ? AND age = ?";
+            String deleteSQL = "DELETE FROM user WHERE name = ? AND age = ?";
             pstmt = conn.prepareStatement(deleteSQL);
             pstmt.setString(1, delName);
             pstmt.setInt(2, delAge);
