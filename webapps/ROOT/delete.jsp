@@ -32,16 +32,18 @@
             int rowsDeleted = pstmt.executeUpdate();
 
             if (rowsDeleted > 0) {
-                out.println("<p>User deleted successfully.</p>");
+	        response.sendRedirect("/user");
             } else {
                 out.println("<p>Error deleting user.</p>");
             }
         } else {
-            out.println("<p>User not found.</p>");
+	    out.println("<p>User not found.</p>");
+            out.println("<button onclick=\"history.back()\">Go Back</button>");
         }
     } catch (Exception e) {
         e.printStackTrace();
         out.println("<p>Error occurred: " + e.getMessage() + "</p>");
+	out.println("<button onclick=\"history.back()\">Go Back</button>");
     } finally {
         if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
         if (pstmt != null) try { pstmt.close(); } catch (SQLException ignore) {}
