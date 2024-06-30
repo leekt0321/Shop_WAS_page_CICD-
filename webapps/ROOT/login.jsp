@@ -29,6 +29,20 @@
 		    <button type="button" onclick="history.back()">Go Back</button>
                 </div>
             </form>
+	    <h2>Delete Your Information</h2>
+            <form action="/user/delete.jsp" method="post">
+                <div class="form-group">
+                    <label for="del_name">Name:</label>
+                    <input type="text" id="del_name" name="del_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="del_age">Age:</label>
+                    <input type="number" id="del_age" name="del_age" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
         </section>
     </main>
 
