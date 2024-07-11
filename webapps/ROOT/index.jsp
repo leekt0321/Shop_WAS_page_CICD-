@@ -14,7 +14,7 @@
 
     <main>
         <section class="user-info">
-            <h2>모든 사용자 목록 </h2>
+            <h2>모든 사용자 목록 입니다. </h2>
             <div class="info-container">
                 <%
                     Connection conn = null;
